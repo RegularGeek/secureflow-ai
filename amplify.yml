@@ -3,16 +3,16 @@ frontend:
   phases:
     preBuild:
       commands:
-        - cd web
+        - cd $CODEBUILD_SRC_DIR/secureflow-ai/web
         - npm install --no-audit --no-fund
     build:
       commands:
-        - cd web
+        - cd $CODEBUILD_SRC_DIR/secureflow-ai/web
         - npm run build
   artifacts:
     baseDirectory: web/out
     files:
-      - '**/*'
+      - "**/*"
   cache:
     paths:
       - web/node_modules/**/*
